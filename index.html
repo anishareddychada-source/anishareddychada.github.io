@@ -1,19 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anisha Reddy Chada - Portfolio</title>
   <style>
-    body {font-family: Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; background: #f7f9fc; color: #333;}
-    header {background: #4a90e2; color: white; padding: 30px 0; text-align: center;}
-    section {padding: 40px; max-width: 900px; margin: auto;}
-    h1, h2 {color: #4a90e2;}
-    a {color: #4a90e2; text-decoration: none;}
-    a:hover {text-decoration: underline;}
-    .projects div {background: white; padding: 15px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 0 5px rgba(0,0,0,0.1);}
-    footer {background: #eee; text-align: center; padding: 20px;}
-    .button {display:inline-block; background:#4a90e2; color:#fff; padding:10px 20px; border-radius:6px;}
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      margin: 0;
+      background: #f8fafc;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(135deg, #2563eb, #1e40af);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.1em;
+      margin-bottom: 25px;
+    }
+    header a.button {
+      background: white;
+      color: #1e40af;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    header a.button:hover {
+      background: #dbeafe;
+    }
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 50px 20px;
+    }
+    h2 {
+      color: #1e3a8a;
+      border-left: 5px solid #2563eb;
+      padding-left: 10px;
+      margin-bottom: 25px;
+    }
+    .project {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 25px;
+    }
+    .project h3 {
+      color: #2563eb;
+      margin-top: 0;
+    }
+    a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      background: #1e3a8a;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
   </style>
 </head>
 <body>
@@ -25,30 +83,64 @@
 
   <section id="about">
     <h2>About Me</h2>
-    <p>Hello! I’m Anisha, currently pursuing my Master’s in Information Technology at the University of Cincinnati. 
-    I’m passionate about data analytics and visualization, using tools like Power BI, Python, and SQL to uncover meaningful insights. 
-    My goal is to become a Data Analyst at a top company like Amazon or Google.</p>
+    <p>
+      Hello! I'm Anisha Reddy Chada, pursuing my Master's in Information
+      Technology at the University of Cincinnati. I’m passionate about turning
+      data into actionable insights using tools like Power BI, SQL, and Python.
+      My goal is to become a Data Analyst in a leading company where I can help
+      drive data-driven decisions.
+    </p>
   </section>
 
   <section id="projects">
     <h2>Projects</h2>
-    <div>
+
+    <div class="project">
       <h3>📊 Netflix Data Analytics Dashboard</h3>
-      <p>Created a Power BI dashboard analyzing Netflix movies and shows by genre, release year, and country.</p>
+      <p>
+        Developed an interactive Power BI dashboard analyzing Netflix shows and
+        movies by genre, country, and release trends to uncover viewer patterns.
+      </p>
       <a href="https://github.com/anishareddychada/netflix-dashboard" target="_blank">View Project →</a>
     </div>
-    <div>
-      <h3>💹 Sales Insights Dashboard</h3>
-      <p>Analyzed company sales data using Power BI and SQL to identify trends and top-performing products.</p>
+
+    <div class="project">
+      <h3>💼 Sales Insights Dashboard</h3>
+      <p>
+        Built a Power BI dashboard using real-world sales data to identify top
+        performing regions, revenue trends, and business growth opportunities.
+      </p>
       <a href="https://github.com/anishareddychada/sales-insights" target="_blank">View Project →</a>
+    </div>
+
+    <div class="project">
+      <h3>📈 Customer Churn Prediction</h3>
+      <p>
+        Applied machine learning models in Python (Logistic Regression & Random
+        Forest) to predict customer churn, improving retention strategies.
+      </p>
+      <a href="https://github.com/anishareddychada/customer-churn" target="_blank">View Project →</a>
     </div>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:anishareddychada@gmail.com">anishareddychada@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/anishareddychada" target="_blank">linkedin.com/in/anishareddychada</a></p>
-    <p>GitHub: <a href="https://github.com/anishareddychada" target="_blank">github.com/anishareddychada</a></p>
+    <p>
+      📧 Email:
+      <a href="mailto:anishachada9263@gmail.com">anishachada9263@gmail.com</a>
+    </p>
+    <p>
+      🔗 LinkedIn:
+      <a href="https://linkedin.com/in/anishareddychada" target="_blank"
+        >linkedin.com/in/anishareddychada</a
+      >
+    </p>
+    <p>
+      💻 GitHub:
+      <a href="https://github.com/anishareddychada" target="_blank"
+        >github.com/anishareddychada</a
+      >
+    </p>
   </section>
 
   <footer>
