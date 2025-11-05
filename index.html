@@ -1,189 +1,249 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anisha Chada | Data Analyst Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Anisha Chada — Data Analyst</title>
+  <meta name="description" content="Portfolio of Anisha Chada — Data Analyst | MS in IT, University of Cincinnati. Power BI, Python, SQL, Data Visualization." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      margin: 0;
-      background-color: #f8f9fa;
-      color: #222;
-      line-height: 1.6;
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#94a3b8; --accent:#06b6d4; --glass: rgba(255,255,255,0.04);
+      --radius:14px; --maxw:1100px;
     }
-    header {
-      background-color: #004aad;
-      color: white;
-      text-align: center;
-      padding: 3rem 1rem;
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial; background:linear-gradient(180deg,#071026 0%, #071827 100%); color:#e6eef6}
+    .wrap{max-width:var(--maxw);margin:36px auto;padding:28px;border-radius:20px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);box-shadow:0 6px 30px rgba(2,6,23,0.6)}
+    header{display:flex;gap:20px;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:16px;align-items:center}
+    .avatar{width:84px;height:84px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:28px}
+    h1{margin:0;font-size:28px}
+    .subtitle{color:var(--muted);margin-top:6px}
+    nav a{color:var(--muted);text-decoration:none;margin-left:14px}
+
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;margin-top:26px;align-items:start}
+    .card{background:var(--card);padding:20px;border-radius:14px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.02)}
+    .cta{display:flex;gap:12px;margin-top:16px}
+    .btn{padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);cursor:pointer}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),#7c3aed);color:#012; font-weight:600;border:none}
+
+    .meta-list{display:flex;flex-direction:column;gap:8px}
+    .meta-list small{color:var(--muted)}
+
+    section{margin-top:22px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+
+    .skill-pill{display:inline-block;padding:8px 10px;border-radius:999px;background:var(--glass);color:var(--muted);font-size:13px;margin:6px 6px 6px 0}
+
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .project-card{display:flex;flex-direction:column;gap:10px;padding:14px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent)}
+    .thumbnail{height:160px;border-radius:10px;background:linear-gradient(180deg,#07283a,#05202a);display:flex;align-items:center;justify-content:center;color:var(--muted)}
+    .project-meta{display:flex;justify-content:space-between;align-items:center}
+
+    footer{margin-top:28px;color:var(--muted);font-size:14px;text-align:center;padding:18px 0}
+
+    /* responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .projects{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr 1fr}
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+    @media (max-width:520px){
+      .grid-3{grid-template-columns:1fr}
+      .avatar{width:64px;height:64px;font-size:22px}
+      h1{font-size:22px}
     }
-    header p {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
-    }
-    section {
-      max-width: 900px;
-      margin: 2rem auto;
-      background: white;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    h2 {
-      color: #004aad;
-      border-bottom: 2px solid #004aad;
-      padding-bottom: 5px;
-    }
-    .sub-section {
-      margin-bottom: 1.5rem;
-    }
-    .project-card img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 10px;
-    }
-    .btn {
-      display: inline-block;
-      padding: 8px 15px;
-      background: #004aad;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-    .contact {
-      text-align: center;
-      margin-top: 2rem;
-    }
-    .contact a {
-      color: #004aad;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-    .contact a:hover {
-      text-decoration: underline;
-    }
+
+    /* simple modal */
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.6);padding:18px}
+    .modal.open{display:flex}
+    .modal-card{background:#071827;padding:18px;border-radius:12px;max-width:900px;width:100%;}
+    .modal-close{float:right;border:none;background:none;color:var(--muted);font-size:18px;cursor:pointer}
   </style>
 </head>
 <body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="avatar">AC</div>
+        <div>
+          <h1>Anisha Chada</h1>
+          <div class="subtitle">Data Analyst | MS in Information Technology — University of Cincinnati</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <a href="#" id="downloadResume">Resume</a>
+      </nav>
+    </header>
 
-  <header>
-    <h1>Anisha Chada</h1>
-    <p>Data Analyst | MS in Information Technology | Python | SQL | Power BI</p>
-    <p>Cincinnati, OH | +1 (513) 383-1880 | <a href="mailto:anishachada9263@gmail.com" style="color:white;">anishachada9263@gmail.com</a></p>
-  </header>
+    <div class="hero">
+      <div>
+        <div class="card">
+          <p style="margin:0;line-height:1.6">I’m <strong>Anisha Reddy Chada</strong> — a Master’s student in Information Technology at the University of Cincinnati. I transform data into actionable insights using <strong>Power BI, Python, and SQL</strong>. I build dashboards and analytics solutions that help teams make data-driven decisions.</p>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I’m Anisha Chada, a passionate Data Analyst with over 2 years of hands-on experience in data analysis, visualization, and predictive modeling.
-      I specialize in transforming raw data into actionable insights using Python, SQL, Power BI, and Excel.
-      I’m currently pursuing my Master’s in Information Technology at the University of Cincinnati and eager to apply my technical and analytical expertise to solve real-world business challenges.
-    </p>
-  </section>
+          <div class="cta">
+            <button class="btn primary" id="viewProjectsBtn">View Projects</button>
+            <button class="btn" id="contactBtn">Contact Me</button>
+          </div>
 
-  <section id="education">
-    <h2>Education</h2>
-    <div class="sub-section">
-      <h3>University of Cincinnati</h3>
-      <p><strong>Master of Science in Information Technology</strong> | Expected Graduation: December 2025</p>
-      <p>Grade: 4.0 GPA</p>
+          <div style="margin-top:14px" class="meta-list">
+            <small>📍 Cincinnati, OH</small>
+            <small>📧 anishachada9263@gmail.com</small>
+            <small>🔗 <a href="https://linkedin.com/in/anishareddychada" style="color:var(--accent);text-decoration:none">LinkedIn</a> • <a href="https://github.com/anishareddychada" style="color:var(--accent);text-decoration:none">GitHub</a></small>
+          </div>
+        </div>
+
+        <section id="projects">
+          <h3 style="margin-bottom:8px">Featured Projects</h3>
+          <div class="projects">
+            <div class="project-card">
+              <div class="thumbnail">Customer Feedback Analysis — Power BI Image</div>
+              <div>
+                <strong>Customer Feedback Analysis Dashboard</strong>
+                <p style="margin:6px 0;color:var(--muted);font-size:14px">Interactive Power BI dashboard visualizing sentiment, satisfaction, and product-level insights.</p>
+                <div class="project-meta"><small>Power BI • Excel • DAX</small><button class="btn" onclick="openModal(0)">View</button></div>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="thumbnail">Netflix Data Analytics — Power BI Image</div>
+              <div>
+                <strong>Netflix Data Analytics Dashboard</strong>
+                <p style="margin:6px 0;color:var(--muted);font-size:14px">Analysis of 8,807 titles: genre, country, and release-year trends with interactive filters.</p>
+                <div class="project-meta"><small>Power BI • DAX • Data Cleaning</small><button class="btn" onclick="openModal(1)">View</button></div>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="thumbnail">Sales Performance — Power BI Image</div>
+              <div>
+                <strong>Superstore Sales Performance Dashboard</strong>
+                <p style="margin:6px 0;color:var(--muted);font-size:14px">Sales KPIs, category performance, and regional comparison dashboards.</p>
+                <div class="project-meta"><small>Power BI • Excel • Visualization</small><button class="btn" onclick="openModal(2)">View</button></div>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="thumbnail">Process Optimization — Python Analysis</div>
+              <div>
+                <strong>Industrial Process Analysis</strong>
+                <p style="margin:6px 0;color:var(--muted);font-size:14px">Applied Python for exploratory analysis and built models to identify improvement opportunities.</p>
+                <div class="project-meta"><small>Python • Pandas • Scikit-learn</small><button class="btn" onclick="openModal(3)">View</button></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <aside style="min-width:260px">
+        <div class="card">
+          <h4 style="margin:0 0 8px 0">Skills & Tools</h4>
+          <div>
+            <span class="skill-pill">Power BI</span>
+            <span class="skill-pill">Python (Pandas)</span>
+            <span class="skill-pill">SQL</span>
+            <span class="skill-pill">Excel</span>
+            <span class="skill-pill">DAX</span>
+            <span class="skill-pill">Data Visualization</span>
+            <span class="skill-pill">Matplotlib</span>
+            <span class="skill-pill">NumPy</span>
+          </div>
+
+          <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:14px 0">
+
+          <h4 style="margin:0 0 8px 0">Experience</h4>
+          <div style="color:var(--muted);font-size:14px">
+            <strong>Student Assistant</strong><br /><small>University of Cincinnati — Aug 2025 – Present</small>
+            <div style="height:8px"></div>
+            <strong>Data Analytics Team Lead</strong><br /><small>IEEE Student Branch — Sep 2022 – May 2023</small>
+            <div style="height:8px"></div>
+            <strong>Intern — Suntek Corp Solutions</strong><br /><small>May 2022 – Aug 2022</small>
+          </div>
+        </div>
+
+        <div style="height:16px"></div>
+
+        <div class="card">
+          <h4 style="margin:0 0 8px">Education</h4>
+          <div style="color:var(--muted);font-size:14px">
+            <strong>University of Cincinnati</strong><br /><small>M.S. in Information Technology (2024 – 2025) • GPA: 4.0</small>
+          </div>
+        </div>
+
+      </aside>
     </div>
-  </section>
 
-  <section id="experience">
-    <h2>Professional Experience</h2>
+    <section id="skills">
+      <h3 style="margin-bottom:8px">Skills & Highlights</h3>
+      <div class="card" style="padding:18px">
+        <div class="grid-3">
+          <div>
+            <h4 style="margin:0">Technical Skills</h4>
+            <p style="color:var(--muted);font-size:14px">Power BI · Python · SQL · Excel · DAX · Data Modeling · Pandas · NumPy · Visualization</p>
+          </div>
+          <div>
+            <h4 style="margin:0">Analytics</h4>
+            <p style="color:var(--muted);font-size:14px">Customer feedback analysis · KPI design · Trend analysis · Predictive modeling · A/B analysis</p>
+          </div>
+          <div>
+            <h4 style="margin:0">Soft Skills</h4>
+            <p style="color:var(--muted);font-size:14px">Team leadership · Communication · Mentoring · Problem solving</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="sub-section">
-      <h3>Student Assistant — University of Cincinnati</h3>
-      <p><em>Aug 2025 – Present | Cincinnati, OH</em></p>
-      <ul>
-        <li>Managed and analyzed parking operations data using Excel to improve service efficiency.</li>
-        <li>Created reports and visualizations to support operational planning.</li>
-      </ul>
+    <section id="contact">
+      <h3 style="margin-bottom:8px">Contact</h3>
+      <div class="card">
+        <p style="margin:0 0 8px">Interested in collaborating or hiring me for a data role? Reach out!</p>
+        <p style="margin:0;color:var(--muted)">📧 <strong>anishachada9263@gmail.com</strong></p>
+        <p style="margin-top:10px;color:var(--muted)">Or find me on <a href="https://linkedin.com/in/anishareddychada" style="color:var(--accent)">LinkedIn</a> and <a href="https://github.com/anishareddychada" style="color:var(--accent)">GitHub</a>.</p>
+      </div>
+    </section>
+
+    <footer>
+      Built with ❤️ • Anisha Chada • Data Analyst • University of Cincinnati
+    </footer>
+  </div>
+
+  <!-- modal area -->
+  <div id="projectModal" class="modal" role="dialog" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div id="modalContent" style="margin-top:6px"></div>
     </div>
+  </div>
 
-    <div class="sub-section">
-      <h3>Data Analytics Team Lead — IEEE Student Branch, MVSR</h3>
-      <p><em>Sep 2022 – May 2023 | Hyderabad, India</em></p>
-      <ul>
-        <li>Led a 10-member analytics team to analyze academic data and design interactive dashboards.</li>
-        <li>Improved mentoring outcomes by 25% using Power BI insights and storytelling.</li>
-      </ul>
-    </div>
+  <script>
+    const projects = [
+      {title:'Customer Feedback Analysis', desc:'Interactive Power BI dashboard visualizing sentiment, satisfaction, and product-level insights. Tools: Power BI, Excel, DAX.'},
+      {title:'Netflix Data Analytics Dashboard', desc:'Analysis of 8,807 titles: genre, country, and release-year trends with interactive filters. Tools: Power BI, DAX.'},
+      {title:'Superstore Sales Performance', desc:'Sales KPIs, category performance, and regional comparison dashboards. Tools: Power BI, Excel.'},
+      {title:'Industrial Process Analysis', desc:'Exploratory analysis and modeling using Python to identify process improvements. Tools: Python, Pandas, Scikit-learn.'}
+    ];
 
-    <div class="sub-section">
-      <h3>Project Member (Intern) — Suntek Corp Solutions Pvt. Ltd</h3>
-      <p><em>May 2022 – Aug 2022 | Hyderabad, India</em></p>
-      <ul>
-        <li>Analyzed large datasets using Python (Pandas, NumPy, Seaborn).</li>
-        <li>Built dashboards in Power BI and Excel to visualize performance metrics.</li>
-      </ul>
-    </div>
+    function openModal(i){
+      const modal = document.getElementById('projectModal');
+      const content = document.getElementById('modalContent');
+      content.innerHTML = `<h3 style=\"margin-top:0\">${projects[i].title}</h3><p style=\"color:var(--muted)\">${projects[i].desc}</p><p style=\"margin-top:8px;color:var(--muted)\">Links: <a href=\"#\" style=\"color:var(--accent)\">Power BI (image)</a> • <a href=\"#\" style=\"color:var(--accent)\">GitHub</a></p>`;
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
+    }
+    function closeModal(){
+      const modal = document.getElementById('projectModal');
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden','true');
+    }
 
-    <div class="sub-section">
-      <h3>Intern Trainee — Inventive Core Integrations Pvt. Ltd</h3>
-      <p><em>May 2021 – Aug 2021 | Hyderabad, India</em></p>
-      <ul>
-        <li>Cleaned and analyzed industrial data to identify inefficiencies.</li>
-        <li>Performed SQL and Excel analysis to generate process improvement insights.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="projects">
-    <h2>Projects</h2>
-
-    <div class="project-card">
-      <img src="customer-feedback-dashboard.png" alt="Customer Feedback Analysis Dashboard">
-      <h3>Customer Feedback Analysis Dashboard — Power BI</h3>
-      <p>
-        Created an interactive dashboard analyzing customer satisfaction and sentiment data.
-        Delivered insights on feedback distribution, product satisfaction, and performance trends.
-      </p>
-    </div>
-
-    <div class="project-card">
-      <img src="netflix-dashboard.png" alt="Netflix Data Analytics Dashboard">
-      <h3>Netflix Data Analytics Dashboard — Power BI</h3>
-      <p>
-        Designed a dashboard analyzing Netflix content by genre, country, and release year.
-        Derived insights on trends and audience distribution using Power BI visuals.
-      </p>
-    </div>
-
-    <div class="project-card">
-      <img src="sales-dashboard.png" alt="Sales Performance Dashboard">
-      <h3>Sales Performance Dashboard — Power BI & Excel</h3>
-      <p>
-        Built a sales performance dashboard analyzing regional and product-based sales.
-        Automated KPIs for revenue growth and profit trends with interactive filters.
-      </p>
-    </div>
-  </section>
-
-  <section id="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li><strong>Data Analytics & Visualization:</strong> Power BI, Excel, Tableau (basic), Data Storytelling</li>
-      <li><strong>Programming & Databases:</strong> Python (Pandas, NumPy, Scikit-learn), SQL, PL/SQL</li>
-      <li><strong>Predictive Modeling:</strong> Regression, Classification, Data Cleaning, EDA</li>
-      <li><strong>Tools:</strong> Power Query, Jupyter Notebook, Git</li>
-      <li><strong>Soft Skills:</strong> Problem-Solving, Leadership, Communication</li>
-    </ul>
-  </section>
-
-  <section class="contact">
-    <h2>Contact</h2>
-    <p>Let’s connect!</p>
-    <a href="mailto:anishachada9263@gmail.com">Email</a> |
-    <a href="#">LinkedIn</a> |
-    <a href="#">GitHub</a>
-  </section>
-
+    document.getElementById('viewProjectsBtn').addEventListener('click',()=>{location.href='#projects'});
+    document.getElementById('contactBtn').addEventListener('click',()=>{location.href='#contact'});
+    document.getElementById('downloadResume').addEventListener('click',(e)=>{e.preventDefault();alert('If you have a PDF resume, upload it to your GitHub repo and link it here.');});
+  </script>
 </body>
 </html>
+
